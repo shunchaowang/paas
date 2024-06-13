@@ -23,3 +23,22 @@ Data source -> kafka connect -> kafka -> kafka connect -> data sink
 ## replication
 
 ## sync
+
+# demo
+
+the docker compose file contains the docker setup for the whole ecosystem
+
+## zookeeper
+
+## broker
+
+## schema-registry
+
+## connect
+
+## control-center
+
+## rest-proxy
+
+run `docker compose up -d` to start the docker compose, then the control center should be accessible [control center](http://localhost:9021).
+to stop the compose run `docker compose down`
