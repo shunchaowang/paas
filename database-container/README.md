@@ -34,7 +34,7 @@ docker ps -a
 docker ps
 
 # use the container id from the ps
-docker exec <container_id> -it bash
+docker exec -it <container_id> bash
 ```
 
 ## Stopping
