@@ -1,6 +1,6 @@
-# Platform As A Service of Kafka
+# Platform As A Service of ActiveMQ Artemis
 
-- Run Kafka in docker
+- Run ActiveMQ in docker
 
 - The project can be used in development environment
 

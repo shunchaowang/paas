@@ -1,0 +1,14 @@
+services:
+  artemis:
+    image: apache/activemq-artemis:latest # Or a specific version, e.g., 2.33.0
+    container_name: artemis-broker
+    ports:
+      - "61616:61616" # AMQP
+      - "8161:8161"   # Web Console
+    environment:
+      - AMQ_USER=admin
+      - AMQ_PASSWORD=admin
+      - AMQ_RESET_CONFIG=false # Set false to prevent config reset on restart
+    volumes:
+      - ./data/artemis:/var/lib/artemis/data # Persist broker data
+      - ./data/artemis/etc-override:/var/lib/artemis/etc-override # For custom configuration files
