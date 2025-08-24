@@ -1,25 +1,9 @@
 services:
   redis:
-    image: redis:latest # Specifies the Redis image to use
-    container_name: redis # Optional: Assigns a custom name to the container
+    image: redis/redis-stack:latest
+    container_name: redis_stack
     ports:
-      - "6379:6379" # Maps host port 6379 to container port 6379
+      - "6379:6379"  # Redis server
+      - "8001:8001"  # RedisInsight (or 5540:5540 for newer versions if 8001 doesn't work)
     volumes:
-      - ./data/redis:/data # Mounts a named volume for data persistence
-    restart: always # Ensures Redis restarts automatically if it crashes or the host reboots
-    healthcheck:
-      test: [ "CMD", "redis-cli", "ping" ]
-      interval: 5s
-      timeout: 5s
-      retries: 3
-
-  redis-insight:
-    image: redis/redisinsight:latest
-    container_name: redis-insight
-    restart: unless-stopped
-    ports:
-      - "8001:8001" # Map host port 8001 to container port 8001 for RedisInsight UI
-    volumes:
-      - ./data/redis_insight:/db # Persist RedisInsight data
-    depends_on:
-      - redis # Ensure Redis starts before RedisInsight
+      - ./data/redis_data:/data

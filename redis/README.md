@@ -44,16 +44,13 @@ cd redis
 docker compose down
 ```
 
-### Admin UI
+### Redis Insight
 
-ActiveMQ manage console is listening on 8161, it should be accessible once the container starts up.
-[activemq console](http://localhost:8161/)
+Redis Insight is a management ui for the redis service, once the container starts, the redis insight
+should be running on
+[redis insight](http://localhost:8001/)
 
-The default credential is artemis/artemis unless they are specified in the compose file with
-```
-ARTEMIS_USERNAME=<>
-ARTEMIS_PASSWORD=<>
-```
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/shunchaowang/my-platform-docker/LICENSE) file for details.
+This project is licensed under the MIT License - see
+the [LICENSE.md](https://github.com/shunchaowang/my-platform-docker/LICENSE) file for details.
