@@ -8,6 +8,14 @@ services:
     environment:
       MYSQL_DATABASE: "dev"
       MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_USER: "admin"
+      MYSQL_PASSWORD: "admin"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p$$MYSQL_ROOT_PASSWORD"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 30s # Optional: give the container time to initialize
 
   mongo:
     image: mongo:latest
@@ -17,9 +25,10 @@ services:
       - ./data/mongo:/data/db
 
   redis:
-    image: redis:latest
+    image: redis/redis-stack:latest
     ports:
-      - "6379:6379"
+      - "6379:6379"  # Redis server
+      - "8001:8001"  # RedisInsight (or 5540:5540 for newer versions if 8001 doesn't work)
     volumes:
       - ./data/redis:/data
 

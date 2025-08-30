@@ -71,7 +71,9 @@ I use mongo compass to access mongo when docker is up
 
 ### Access redis
 
-TODO
+Redis Insight is a management ui for the redis service, once the container starts, the redis insight
+should be running on
+[redis insight](http://localhost:8001/)
 
 ### Access postgres
 
