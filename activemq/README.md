@@ -34,7 +34,10 @@ docker ps -a
 docker ps
 
 # use the container id from the ps
-docker exec <container_id> -it bash
+docker exec -it <container_id> bash
+
+# to run with as root in the container
+docker exec -u root -it <container_id> bash
 ```
 
 ## Stopping
