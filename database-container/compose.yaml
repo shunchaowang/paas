@@ -64,6 +64,7 @@ services:
 
 networks:
   localpaas:
+    name: localpaas
     driver: bridge
 # volumes:
 #   mysqldb:
